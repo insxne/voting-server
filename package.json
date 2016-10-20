@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch"
   },
   "keywords": [],
@@ -14,18 +14,29 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "chai-immutable": "^1.6.0",
-    "mocha": "^3.1.2"
+    "jsdom": "^9.8.0",
+    "mocha": "^3.1.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "babel": {
+      "presets": [
+        "es2015",
+        "react"
+      ]
+    }
   },
   "dependencies": {
     "immutable": "^3.8.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "redux": "^3.6.0",
     "socket.io": "^1.5.0"
   }
